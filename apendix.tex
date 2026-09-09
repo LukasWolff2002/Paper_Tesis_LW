@@ -1,0 +1,467 @@
+% ============================================================
+%  SUPPLEMENTARY MATERIAL
+%  Physics of Fluids submission — Wolff et al.
+%
+%  Compilar por separado del manuscrito principal.
+%  Numeracion independiente: FIG. S1, TABLE S1, Eq. (S1).
+% ============================================================
+\documentclass[%
+  aip,
+  pof,
+  reprint,
+  floatfix
+]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{makecell}
+\usepackage{hyperref}
+
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+
+% ── Numeracion suplementaria ────────────────────────────────
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\theequation}{S\arabic{equation}}
+
+\begin{document}
+
+\title{Supplementary material for\\
+``A numerical reduced model for fiber orientation prediction in unsteady viscoplastic flows, from experimental PIV and PTV on Carbopol''}
+
+\author{Lukas Wolff}
+\author{Sebasti\'an Sep\'ulveda}
+\author{Crist\'obal Maggi}
+\author{Juan Pablo Toro}
+\author{Jorge G\'omez}
+\author{\'Alvaro Paul}
+\author{Patricio A.\ Moreno-Casas}
+\email{patriciomoreno@miuandes.cl}
+\affiliation{%
+  Facultad de Ingenier\'ia y Ciencias Aplicadas,
+  Universidad de los Andes, Santiago, Chile
+}
+
+\maketitle
+
+\noindent
+This document collects the procedures, parameters and secondary analyses referred to in the main text. It is organized in the order in which the main text invokes it: the derivation of the saturation law (Sec.~\ref{sup:derivation}), the complete geometry of the casting device (Sec.~\ref{sup:geometry}), the record of the gel preparation (Sec.~\ref{sup:carbopol}), the processing parameters of the two optical techniques (Secs.~\ref{sup:piv} and~\ref{sup:ptv}), the uncertainty on the accumulated strain resolved cell by cell (Sec.~\ref{sup:gamma}), the effect sizes resolved zone by zone (Sec.~\ref{sup:zonal}), and the descriptors of the arrested population that the main text reports only in summary (Sec.~\ref{sup:finalstate}).
+
+
+% ============================================================
+\section{Derivation of the saturation law}
+\label{sup:derivation}
+% ============================================================
+
+The main text states the reduction of the orientation tensor to a scalar balance and gives its solution. This section carries out the projection in full, establishes the identity between the eigenvalue definition of the order parameter and the form recovered by the planar measurement, and states the assumptions each step introduces.
+
+\subsection{Projection of the orientation tensor onto its leading eigenvalue}
+
+\todo{Desarrollar: partir de la ecuacion tensorial del texto principal, tomar la derivada del autovalor $\lambda_1$, mostrar que el termino de vorticidad se anula porque una rotacion rigida transporta los autovectores sin alterar los autovalores, y obtener las tasas $a$ y $b$ en terminos de $\xi$, $\bm{D}$ y $C_I$. Corresponde a las secciones A.1 a A.3 de la tesis.}
+
+\subsection{Identity with the measured order parameter}
+
+The main text recovers the order parameter in the imaging plane as $|\langle e^{i2\theta}\rangle|$ over the fibers of a region, whereas Sec.~II of the manuscript defines it from the leading eigenvalue of the orientation tensor. The two coincide under the planar reduction, and the equivalence is established here.
+
+\todo{Desarrollar: mostrar que para una poblacion contenida en un plano, el autovalor mayor del tensor de orientacion bidimensional se relaciona con el primer momento circular de la distribucion del angulo doble mediante $\eta_1 = |\langle e^{i2\theta}\rangle|$. Corresponde a la seccion A.1.1 de la tesis.}
+
+\subsection{Change of variable and explicit solution}
+
+\todo{Desarrollar: justificar el paso de $t$ a $\Gamma$ mostrando que $\dot{\gamma}$ factoriza el lado derecho completo, integrar la relajacion de primer orden para un estado de entrada arbitrario $\eta_{1,0}$, y dar la solucion general antes de la reduccion a dos parametros. Corresponde a las secciones A.4 y A.5 de la tesis.}
+
+\subsection{Identifiability of the two constants}
+
+\todo{Desarrollar: mostrar por que $\eta_{1,\max}$ y $\Gamma^{*}$ no son independientes de $a$ y $b$ por separado, sino solo de la suma y del cociente, y por que esto obliga a tratarlos como parametros fenomenologicos ajustados y no derivados de un unico valor de $C_I$. Corresponde a la seccion A.6 de la tesis.}
+
+\subsection{Cost of the planar reduction}
+
+\todo{Desarrollar: cuantificar el sesgo de proyeccion. Una varilla inclinada un angulo $\psi$ fuera del plano se proyecta como una varilla mas corta y a un angulo que no es el que ocupa en el espacio; mostrar que el sesgo tiene signo definido y que sobreestima el alineamiento de la poblacion tridimensional. Corresponde a la seccion A.7 de la tesis.}
+
+\subsection{Assumptions and their consequences}
+
+Table~\ref{tab:sup_assumptions} collects the assumptions introduced along the derivation, the step at which each enters, and the consequence of its failure.
+
+\begin{table}[htb]
+\centering
+\caption{Assumptions of the saturation law, the step at which each is introduced, and the consequence of its failure.}
+\label{tab:sup_assumptions}
+\begin{tabular}{l l l}
+\toprule
+\textbf{Assumption} & \textbf{Introduced at} & \textbf{Consequence of failure} \\
+\midrule
+Monotone deformation      & Change of variable    & The deformation term disorders rather than orders \\
+Semi-dilute regime        & Interaction term      & Rotary diffusion ceases to represent the encounters \\
+Disordered entry state    & Explicit solution     & The two-parameter form does not hold \\
+Planar orientation        & Reduction             & The measured order overestimates the true alignment \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+% ============================================================
+\section{Complete geometry of the casting device}
+\label{sup:geometry}
+% ============================================================
+
+Figure~\ref{fig:sup_drawing} gives the dimensioned drawing of the L-shaped device and of the beam into which it discharges, and Fig.~\ref{fig:sup_cameras} the positions and orientations of the four cameras relative to the mold. The distances of the latter are what determine the scale factors reported in the main text, and through them the resolution at which a fiber is seen.
+
+\begin{figure}[htb]
+    \centering
+    \todo{Insertar plano acotado completo del molde: brazo vertical, codo, salida y viga, con todas las cotas y la altura de llenado medida desde el piso del brazo.}
+    \caption{Dimensioned drawing of the casting device. All dimensions in millimetres.}
+    \label{fig:sup_drawing}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \todo{Insertar figura de posiciones de camaras con distancias al molde, y renders del montaje ensamblado.}
+    \caption{Positions and orientations of the four cameras relative to the mold. The rigidity of the mounting matters as much as the positions themselves, since the analysis requires that a fiber tracked by the PTV be located within the velocity field measured by the PIV.}
+    \label{fig:sup_cameras}
+\end{figure}
+
+
+% ============================================================
+\section{Record of the gel preparation}
+\label{sup:carbopol}
+% ============================================================
+
+The mixing protocol of the main text prescribes three pH measurements per batch: after dispersion of the polymer, after the first dose of NaOH, and after the second. Table~\ref{tab:sup_ph} records the value obtained at each stage for every batch of the campaign, together with the acceptance decision. A batch whose final pH fell outside the target range of $6.8$ to $7.2$ was discarded and prepared again.
+
+\begin{table}[htb]
+\centering
+\caption{pH recorded at each stage of the mixing protocol for every batch of the campaign. Values after dispersion, after the first dose of NaOH, and after the second dose are the mean of five measurements taken at distinct points of the mixture. The target range for the final value is $6.8$ to $7.2$.}
+\label{tab:sup_ph}
+\begin{tabular}{l l S S S c}
+\toprule
+\textbf{Batch} & \textbf{Car} &
+  \multicolumn{1}{c}{\makecell{After \\ dispersion}} &
+  \multicolumn{1}{c}{\makecell{After \\ NaOH$_1$}} &
+  \multicolumn{1}{c}{\makecell{After \\ NaOH$_2$}} &
+  \textbf{Accepted} \\
+\midrule
+\multicolumn{6}{c}{\todo{Completar desde el Apendice C de la tesis: una fila por lote, ambas formulaciones.}} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+% ============================================================
+\section{PIV: interrogation parameters and block structure}
+\label{sup:piv}
+% ============================================================
+
+\subsection{Interrogation windows}
+
+The velocity field is obtained through a three-pass scheme in which the interrogation window is progressively refined. Table~\ref{tab:sup_piv_windows} gives the sequence adopted for each camera and formulation. The final window size determines the spatial resolution of the field, and the views covering the fastest regions of the softer formulation retain a larger final window, since tracers would otherwise leave a smaller one between the two frames of a pair.
+
+\begin{table}[htb]
+\centering
+\caption{PIV interrogation parameters by camera and Carbopol formulation. Window sizes follow a three-pass scheme; the final window size determines the spatial resolution of the recovered field.}
+\label{tab:sup_piv_windows}
+\begin{tabular}{c l c}
+\toprule
+\textbf{Camera} & \textbf{Car} & \textbf{Window sizes (px)} \\
+\midrule
+\multirow{2}{*}{1} & 0.2\% & $128 \rightarrow 64 \rightarrow 32$ \\
+                   & 0.5\% & $128 \rightarrow 64 \rightarrow 32$ \\
+\midrule
+\multirow{2}{*}{2} & 0.2\% & $128 \rightarrow 64 \rightarrow 32$ \\
+                   & 0.5\% & $64 \rightarrow 32 \rightarrow 16$ \\
+\midrule
+\multirow{2}{*}{3} & 0.2\% & $64 \rightarrow 32 \rightarrow 16$ \\
+                   & 0.5\% & $64 \rightarrow 32 \rightarrow 16$ \\
+\midrule
+\multirow{2}{*}{4} & 0.2\% & $64 \rightarrow 32 \rightarrow 16$ \\
+                   & 0.5\% & $64 \rightarrow 32 \rightarrow 16$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\todo{Declarar el solape entre ventanas, necesario para fijar el espaciado de la malla de vectores y por tanto la amplificacion del error en la derivada espacial.}
+
+\subsection{Block structure and the diagnostic that fixes it}
+
+The block boundaries are located from the evolution of the fraction of vectors classified as spurious by the normalized median test. Figure~\ref{fig:sup_piv_uod} shows that fraction against time for each camera and formulation, with the adopted transitions marked. An abrupt rise indicates that the tracer displacement has fallen below the level at which the correlation can be resolved, and triggers the transition to a longer correlation interval. Table~\ref{tab:sup_piv_blocks} gives the resulting structure.
+
+\begin{figure}[htb]
+    \centering
+    \todo{Insertar: fraccion de vectores espurios contra tiempo, por camara y formulacion, con las transiciones de bloque marcadas.}
+    \caption{Spurious-vector fraction against time, by camera and formulation, with the adopted block transitions marked.}
+    \label{fig:sup_piv_uod}
+\end{figure}
+
+\begin{table}[htb]
+\centering
+\caption{Temporal block structure adopted for the PIV analysis, by camera and formulation. Each block is defined by its time span and the correlation interval $\Delta t$ applied within it.}
+\label{tab:sup_piv_blocks}
+\begin{tabular}{c l c c c}
+\toprule
+\textbf{Camera} & \textbf{Car} & \textbf{Block} & \textbf{Span (s)} & \textbf{$\Delta t$ (frames)} \\
+\midrule
+\multicolumn{5}{c}{\todo{Completar desde el Apendice B.1 de la tesis.}} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Reduction in computational cost}
+
+Because the Reynolds number remains well below unity throughout, intermediate frames between the analyzed pairs may be skipped without loss of information. Table~\ref{tab:sup_piv_cost} reports the resulting reduction in the number of correlations performed.
+
+\begin{table}[htb]
+\centering
+\caption{Reduction in the number of PIV correlations achieved by the block structure, by camera and formulation.}
+\label{tab:sup_piv_cost}
+\begin{tabular}{c l S S S}
+\toprule
+\textbf{Camera} & \textbf{Car} &
+  \multicolumn{1}{c}{\makecell{Pairs without \\ block structure}} &
+  \multicolumn{1}{c}{\makecell{Pairs with \\ block structure}} &
+  \multicolumn{1}{c}{\makecell{Reduction \\ (\%)}} \\
+\midrule
+\multicolumn{5}{c}{\todo{Completar desde el Apendice B.3 de la tesis.}} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+% ============================================================
+\section{PTV: sampling intervals and block structure}
+\label{sup:ptv}
+% ============================================================
+
+\subsection{The displacement diagnostic}
+
+The sampling interval of the PTV is constrained from both sides: too long an interval lets a fiber travel beyond the search region and breaks the trajectory, while too short an interval reduces the displacement between analyzed frames toward the localization noise and degrades the angular velocity computed from it. Figure~\ref{fig:sup_ptv_disp} shows the distribution of measured displacement between analyzed frames for each candidate interval, together with the two bounds, and the adopted intervals are those for which the distribution stays within both.
+
+\begin{figure}[htb]
+    \centering
+    \todo{Insertar: distribucion del desplazamiento entre fotogramas analizados para cada intervalo candidato, con la cota superior (radio de la region de busqueda) y la cota inferior (ruido de localizacion) marcadas.}
+    \caption{Displacement distribution between analyzed frames for each candidate sampling interval, with the upper bound set by the search region of the tracker and the lower bound set by the localization noise.}
+    \label{fig:sup_ptv_disp}
+\end{figure}
+
+\begin{table}[htb]
+\centering
+\caption{Temporal block structure adopted for the PTV analysis, by camera and formulation. Each block is defined by its time span and the number of frames skipped between the frames that are analyzed.}
+\label{tab:sup_ptv_blocks}
+\begin{tabular}{c l c c c}
+\toprule
+\textbf{Camera} & \textbf{Car} & \textbf{Block} & \textbf{Span (s)} & \textbf{Frames skipped} \\
+\midrule
+\multicolumn{5}{c}{\todo{Completar desde el Apendice B.2 de la tesis.}} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Extension of the training set}
+
+The campaign reaches fiber loadings beyond those represented in the dataset on which the detector of the companion study was trained, so the training set was extended with frames drawn from the densest runs. Table~\ref{tab:sup_dataset} summarizes the composition of the extended set and the partition adopted. The annotations were produced in a model assisted loop in which an initial segmentation was verified and corrected by hand, so that they rest on human judgment and not on the predictions of the earlier detector.
+
+\begin{table}[htb]
+\centering
+\caption{Composition of the extended training set used for the dense-cluster detector, and the partition into training, validation and test subsets.}
+\label{tab:sup_dataset}
+\begin{tabular}{l S S}
+\toprule
+ & \multicolumn{1}{c}{\makecell{Annotated \\ frames}} & \multicolumn{1}{c}{\makecell{After \\ augmentation}} \\
+\midrule
+\multicolumn{3}{c}{\todo{Completar: numero de imagenes anotadas, parametros de aumentacion, y particion 90/7/3.}} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Reduction in computational cost}
+
+\begin{table}[htb]
+\centering
+\caption{Reduction in the number of frames segmented achieved by the PTV block structure, by camera and formulation.}
+\label{tab:sup_ptv_cost}
+\begin{tabular}{c l S S S}
+\toprule
+\textbf{Camera} & \textbf{Car} &
+  \multicolumn{1}{c}{\makecell{Frames without \\ block structure}} &
+  \multicolumn{1}{c}{\makecell{Frames with \\ block structure}} &
+  \multicolumn{1}{c}{\makecell{Reduction \\ (\%)}} \\
+\midrule
+\multicolumn{5}{c}{\todo{Completar desde el Apendice B.3 de la tesis.}} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+% ============================================================
+\section{Uncertainty on the accumulated strain}
+\label{sup:gamma}
+% ============================================================
+
+The main text states the uncertainty on $\Gamma$ as a single figure and gives the two features of the integration that produce it. This section resolves both cell by cell.
+
+\subsection{Where the deformation is delivered}
+
+Figure~\ref{fig:sup_weight} gives the cumulative fraction of the accumulated strain against the fraction of the traverse covered, for every destination cell. The curves rise steeply and then flatten, which is the signature of a yield stress confining the shear to a thin layer at the entry: the first third of the path delivers between $81\%$ and $86\%$ of the final $\Gamma$ in every case.
+
+\begin{figure}[htb]
+    \centering
+    \todo{Insertar: peso acumulado de la deformacion contra fraccion del trayecto, una curva por celda de destino. Datos en B\_peso\_acumulado.csv.}
+    \caption{Cumulative fraction of the accumulated strain against the fraction of the traverse covered, for each destination cell of the beam. The first third of the path delivers between $81\%$ and $86\%$ of the final value in every case.}
+    \label{fig:sup_weight}
+\end{figure}
+
+\subsection{Uncertainty resolved by cell}
+
+Table~\ref{tab:sup_gamma_uncertainty} reports, for each dosage and cell, the fraction of $\Gamma$ delivered within the first third of the traverse, the number of integration segments, the random component of the uncertainty after averaging over the trajectory realizations of the cell, and the systematic component. The random component falls below one percent everywhere, so the uncertainty on $\Gamma$ is set by the systematic term, which is common to every cell and every dosage and therefore rescales the horizontal axis of the fits without displacing the points relative to one another.
+
+\begin{table}[htb]
+\centering
+\caption{Uncertainty on the accumulated strain, by fiber dosage and beam cell. $w_{30}$ is the fraction of $\Gamma$ delivered within the first third of the traverse; $n_{seg}$ the number of integration segments; $\delta_{rand}$ the random component after averaging over the trajectory realizations of the cell; $\delta_{sys}$ the systematic component, common to every cell and dosage.}
+\label{tab:sup_gamma_uncertainty}
+\begin{tabular}{l l S[table-format=2.1] S[table-format=4.0] S[table-format=1.2] S[table-format=1.1] S[table-format=2.1]}
+\toprule
+\textbf{$N$} & \textbf{Cell} &
+  \multicolumn{1}{c}{$\Gamma_{beam}$} &
+  \multicolumn{1}{c}{$n_{seg}$} &
+  \multicolumn{1}{c}{$w_{30}$} &
+  \multicolumn{1}{c}{\makecell{$\delta_{rand}$ \\ (\%)}} &
+  \multicolumn{1}{c}{\makecell{$\delta_{sys}$ \\ (\%)}} \\
+\midrule
+\multirow{5}{*}{750}
+ & r1c1 & 15.8 &  651 & 0.82 & 0.3 & 10.6 \\
+ & r1c2 & 24.6 & 1280 & 0.82 & 0.6 & 10.6 \\
+ & r2c1 & 16.1 &  651 & 0.84 & 0.4 & 10.6 \\
+ & r2c2 & 28.0 & 1292 & 0.83 & 0.5 & 10.6 \\
+ & r2c3 & 35.5 & 1835 & 0.81 & 0.5 & 10.6 \\
+\midrule
+\multirow{5}{*}{1500}
+ & r1c1 & 17.7 &  652 & 0.83 & 0.3 & 10.6 \\
+ & r1c2 & 28.2 & 1287 & 0.82 & 0.9 & 10.6 \\
+ & r2c1 & 17.3 &  652 & 0.86 & 0.4 & 10.6 \\
+ & r2c2 & 32.2 & 1295 & 0.85 & 0.5 & 10.6 \\
+ & r2c3 & 41.1 & 1847 & 0.82 & 0.6 & 10.6 \\
+\midrule
+\multirow{5}{*}{3000}
+ & r1c1 & 17.8 &  653 & 0.82 & 0.3 & 10.6 \\
+ & r1c2 & 27.3 & 1286 & 0.82 & 0.6 & 10.6 \\
+ & r2c1 & 17.2 &  653 & 0.86 & 0.3 & 10.6 \\
+ & r2c2 & 32.3 & 1296 & 0.84 & 0.5 & 10.6 \\
+ & r2c3 & 41.9 & 1857 & 0.82 & 0.5 & 10.6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Repeatability of the fiber-free control}
+
+The four independent acquisitions of the fiber-free control in Carbopol $0.2\%$, two batches supplying two acquisitions each, are the only replicated condition of the campaign and therefore the only direct measurement of repeatability. Table~\ref{tab:sup_gamma_replicates} reports the value of $\Gamma$ each acquisition returns in each cell, together with the coefficient of variation over the four. The replicates share a calibration, so they probe the random component of the uncertainty alone, and the level at which they agree is consistent with the estimate of Table~\ref{tab:sup_gamma_uncertainty}.
+
+\begin{table}[htb]
+\centering
+\caption{Accumulated strain returned by each of the four acquisitions of the fiber-free control in Carbopol $0.2\%$, by beam cell, with the mean, the standard deviation and the coefficient of variation over the four.}
+\label{tab:sup_gamma_replicates}
+\begin{tabular}{l S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=2.2] S[table-format=1.2] S[table-format=1.1]}
+\toprule
+\textbf{Cell} &
+  \multicolumn{4}{c}{\textbf{Acquisition}} &
+  \multicolumn{1}{c}{\textbf{Mean}} &
+  \multicolumn{1}{c}{\textbf{SD}} &
+  \multicolumn{1}{c}{\makecell{\textbf{CV} \\ (\%)}} \\
+\cmidrule(lr){2-5}
+ & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & & & \\
+\midrule
+r1c1 & 22.83 & 22.22 & 22.74 & 22.77 & 22.64 & 0.28 & 1.3 \\
+r1c2 & 33.64 & 33.42 & 33.82 & 33.54 & 33.60 & 0.17 & 0.5 \\
+r2c1 & 18.40 & 19.23 & 19.94 & 19.06 & 19.16 & 0.63 & 3.3 \\
+r2c2 & 31.06 & 31.67 & 33.14 & 31.70 & 31.89 & 0.88 & 2.8 \\
+r2c3 & 37.35 & 38.51 & 39.78 & 37.96 & 38.40 & 1.03 & 2.7 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+% ============================================================
+\section{Effect sizes resolved by zone}
+\label{sup:zonal}
+% ============================================================
+
+The main text reports, for each variable and flow stage, the largest effect of the fiber content found anywhere in the domain together with the zone in which it occurs. This section gives the effect in every zone. Tables~\ref{tab:sup_zonal_euler} and~\ref{tab:sup_zonal_lagrange} report the partial eta squared and the associated $p$ value for the Eulerian and the Lagrangian variables respectively, within each zone, flow stage and formulation.
+
+Zones are omitted where the data do not support a test, following the criterion of the main text: the distal cells of the beam, and every cell of the stiffer formulation beyond the second column, hold too few fibers for a fluctuation computed over a few dozen observations to establish anything.
+
+\begin{table*}[htb]
+\centering
+\caption{Effect of the fiber content on the Eulerian variables, resolved by zone, flow stage and formulation. Entries give the partial eta squared and, in parentheses, the $p$ value of the corresponding term.}
+\label{tab:sup_zonal_euler}
+\todo{Completar desde el Apendice E.2 de la tesis: una fila por zona, columnas por etapa y formulacion, para $|\bm{u}|$ y $|\zeta|$.}
+\end{table*}
+
+\begin{table*}[htb]
+\centering
+\caption{Effect of the fiber content on the Lagrangian variables, resolved by zone, flow stage and formulation. Entries give the partial eta squared and, in parentheses, the $p$ value of the corresponding term.}
+\label{tab:sup_zonal_lagrange}
+\todo{Completar desde el Apendice E.3 de la tesis: una fila por zona, columnas por etapa y formulacion, para $|\bm{v}|$, $\omega$ y $\eta_1$.}
+\end{table*}
+
+\subsection{Flow stage boundaries}
+
+The criterion that locates the stage boundaries is described in the main text. Its numerical parameters are collected here: the median velocity of each zone is smoothed with a centred moving average of $0.25$~s; the peak is located after excluding the first $0.5$~s, which is dominated by the transient of the gate release; the onset ends when the smoothed velocity first falls below $60\%$ of that peak; and the quasi-steady stage begins when it falls below $15\%$ of the peak in Carbopol $0.2\%$ and $30\%$ in Carbopol $0.5\%$. A minimum onset duration of $0.5$~s is enforced, and a zone holding fewer than fifty valid control timestamps inherits its boundaries from the larger geometric region to which it belongs.
+
+The asymmetry of the lower threshold between the two formulations is physical rather than procedural. The stiffer gel carries a higher yield stress and arrests earlier, so its flow comes to rest at a residual velocity that remains a larger fraction of the peak it once reached; a single low threshold would locate the onset of the quasi-steady stage beyond the point at which that material has already stopped moving.
+
+
+% ============================================================
+\section{Additional descriptors of the arrested population}
+\label{sup:finalstate}
+% ============================================================
+
+The main text reports the orientation of the arrested population and states that its spatial dispersion does not respond to the fiber content. This section gives the dispersion measurements on which that statement rests, together with two instantaneous quantities that the main text does not use to support a conclusion.
+
+\subsection{Spatial dispersion of the arrested fibers}
+
+The dispersion index $\Lambda$ compares the radius of gyration of the fiber centroids within a cell with that of a uniform arrangement over the same region, so that $\Lambda = 1$ denotes a uniform arrangement, $\Lambda < 1$ clustering, and $\Lambda > 1$ an arrangement displaced toward the boundaries of the cell. Figure~\ref{fig:sup_lambda} reports it cell by cell.
+
+Within the beam the dispersion is governed by the rheology and not by the fiber content. Carbopol $0.2\%$ reaches values at or slightly above unity in the cells of the lower row, whereas Carbopol $0.5\%$ remains below unity in every populated cell. The contrast follows from how each matrix arrests: the stiffer gel stops flowing while still advancing and locks the fibers wherever they happen to be, preserving whatever clustering they carried out of the L-shape, while the softer gel keeps flowing for longer, so the fibers are carried and rearranged more completely before the material sets.
+
+\begin{figure}[htb]
+    \centering
+    \todo{Insertar Fig. 4.10 de la tesis: indice de dispersion $\Lambda$ por celda, agrupado por dosis y formulacion.}
+    \caption{Dispersion index $\Lambda$ of the arrested fiber centroids in each beam cell, grouped by fiber dosage and formulation. The dotted line marks $\Lambda = 1$, the value of a spatially uniform arrangement; lower values indicate clustering. Error bars span one standard deviation.}
+    \label{fig:sup_lambda}
+\end{figure}
+
+\todo{Considerar si incluir el resultado de Z1, la unica zona en que el contenido de fibra afecta la dispersion, con $\eta^2 = 0.302$ y $p = 0.003$ en la matriz blanda. Es el mayor efecto que el contenido de fibra ejerce sobre cualquier cantidad del conjunto de datos, pero no se puede distinguir si describe la deposicion o la introduccion de las fibras.}
+
+\subsection{Instantaneous fiber speed and orientation order}
+
+Figures~\ref{fig:sup_v} and~\ref{fig:sup_eta_inst} give the spatial distribution of the fiber speed and of the instantaneous orientation order across zones and dosages, completing the set of Lagrangian quantities whose effect sizes the main text tabulates. Neither supports a conclusion of the main text on its own: the fiber speed cannot be compared with the fluid speed because the two techniques sample different depths, and the instantaneous order does not survive pooling.
+
+\begin{figure}[htb]
+    \centering
+    \todo{Insertar Fig. 4.6 de la tesis: distribucion espacial de $|\bm{v}|$ por zona y dosis.}
+    \caption{Spatial distribution of the fiber speed $|\bm{v}|$ across zones and fiber contents during the transition stage, for Carbopol 0.2\% (top) and 0.5\% (bottom).}
+    \label{fig:sup_v}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \todo{Insertar Fig. 4.8 de la tesis: distribucion espacial de $\eta_1$ instantaneo por zona y dosis.}
+    \caption{Spatial distribution of the instantaneous orientation order $\eta_1$ across zones and fiber contents during the transition stage, for Carbopol 0.2\% (top) and 0.5\% (bottom).}
+    \label{fig:sup_eta_inst}
+\end{figure}
+
+\subsection{Photographs of the arrested elements}
+
+Figure~\ref{fig:sup_arrested} shows the beam after arrest at each dosage and in both formulations. The images are the direct visual counterpart of the descriptors reported above, and they make explicit the difference in spreading between the two matrices: the softer gel fills the beam over its full length, while the stiffer one arrests before the third column is reached.
+
+\begin{figure}[htb]
+    \centering
+    \todo{Insertar Apendice F.4 de la tesis: fotografias de los elementos detenidos para cada dosis y ambas formulaciones.}
+    \caption{The beam after arrest, at each fiber dosage and in both Carbopol formulations.}
+    \label{fig:sup_arrested}
+\end{figure}
+
+\end{document}
