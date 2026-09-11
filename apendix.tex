@@ -114,42 +114,17 @@ Figure~\ref{fig:sup_drawing} gives the dimensioned drawing of the L-shaped devic
 
 \begin{figure}[htb]
     \centering
-    \todo{Insertar plano acotado completo del molde: brazo vertical, codo, salida y viga, con todas las cotas y la altura de llenado medida desde el piso del brazo.}
+    \includegraphics[width=1.0\textwidth]{Ilustraciones/DomainDimentions.png}
     \caption{Dimensioned drawing of the casting device. All dimensions in millimetres.}
     \label{fig:sup_drawing}
 \end{figure}
 
 \begin{figure}[htb]
     \centering
-    \todo{Insertar figura de posiciones de camaras con distancias al molde, y renders del montaje ensamblado.}
+    \includegraphics[width=1.0\textwidth]{Ilustraciones/CameraPositions.png}
     \caption{Positions and orientations of the four cameras relative to the mold. The rigidity of the mounting matters as much as the positions themselves, since the analysis requires that a fiber tracked by the PTV be located within the velocity field measured by the PIV.}
     \label{fig:sup_cameras}
 \end{figure}
-
-
-% ============================================================
-\section{Record of the gel preparation}
-\label{sup:carbopol}
-% ============================================================
-
-The mixing protocol of the main text prescribes three pH measurements per batch: after dispersion of the polymer, after the first dose of NaOH, and after the second. Table~\ref{tab:sup_ph} records the value obtained at each stage for every batch of the campaign, together with the acceptance decision. A batch whose final pH fell outside the target range of $6.8$ to $7.2$ was discarded and prepared again.
-
-\begin{table}[htb]
-\centering
-\caption{pH recorded at each stage of the mixing protocol for every batch of the campaign. Values after dispersion, after the first dose of NaOH, and after the second dose are the mean of five measurements taken at distinct points of the mixture. The target range for the final value is $6.8$ to $7.2$.}
-\label{tab:sup_ph}
-\begin{tabular}{l l S S S c}
-\toprule
-\textbf{Batch} & \textbf{Car} &
-  \multicolumn{1}{c}{\makecell{After \\ dispersion}} &
-  \multicolumn{1}{c}{\makecell{After \\ NaOH$_1$}} &
-  \multicolumn{1}{c}{\makecell{After \\ NaOH$_2$}} &
-  \textbf{Accepted} \\
-\midrule
-\multicolumn{6}{c}{\todo{Completar desde el Apendice C de la tesis: una fila por lote, ambas formulaciones.}} \\
-\bottomrule
-\end{tabular}
-\end{table}
 
 
 % ============================================================
@@ -186,6 +161,8 @@ The velocity field is obtained through a three-pass scheme in which the interrog
 
 \todo{Declarar el solape entre ventanas, necesario para fijar el espaciado de la malla de vectores y por tanto la amplificacion del error en la derivada espacial.}
 
+\texcolor{red}{RESPUESTA, EL SOLAPE ES DEL 50\% PARA TODAS LAS VENTANAS.}
+
 \subsection{Block structure and the diagnostic that fixes it}
 
 The block boundaries are located from the evolution of the fraction of vectors classified as spurious by the normalized median test. Figure~\ref{fig:sup_piv_uod} shows that fraction against time for each camera and formulation, with the adopted transitions marked. An abrupt rise indicates that the tracer displacement has fallen below the level at which the correlation can be resolved, and triggers the transition to a longer correlation interval. Table~\ref{tab:sup_piv_blocks} gives the resulting structure.
@@ -196,6 +173,8 @@ The block boundaries are located from the evolution of the fraction of vectors c
     \caption{Spurious-vector fraction against time, by camera and formulation, with the adopted block transitions marked.}
     \label{fig:sup_piv_uod}
 \end{figure}
+
+\textcolor{red}{RESPUESTA, ESTO ESTA EN LA TESIS?}
 
 \begin{table}[htb]
 \centering
@@ -230,6 +209,8 @@ Because the Reynolds number remains well below unity throughout, intermediate fr
 \end{tabular}
 \end{table}
 
+\textcolor{red}{AQUI FALTA PONER LOS GRAFICOS DE LA TESIS}
+
 
 % ============================================================
 \section{PTV: sampling intervals and block structure}
@@ -261,6 +242,8 @@ The sampling interval of the PTV is constrained from both sides: too long an int
 \end{table}
 
 \subsection{Extension of the training set}
+
+\textcolor{red}{MMMM NO SE SI ES NESESARIA ESTA PARTE, SE DECLARA EN LA TESIS Y EL PAPER ESTA ENFOCADO EN EL MODELO DESARROLLADO MAS QUE EN LA TECNICA}
 
 The campaign reaches fiber loadings beyond those represented in the dataset on which the detector of the companion study was trained, so the training set was extended with frames drawn from the densest runs. Table~\ref{tab:sup_dataset} summarizes the composition of the extended set and the partition adopted. The annotations were produced in a model assisted loop in which an initial segmentation was verified and corrected by hand, so that they rest on human judgment and not on the predictions of the earlier detector.
 
